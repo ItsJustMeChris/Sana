@@ -10,6 +10,5 @@ function sanaGetGroup()
 		else Unit = (groupType .. i)
 			table.insert(Group, {Unit = Unit, Role = UnitGroupRolesAssigned(Unit)})
 		end
-	end
-	return Group
+	end return Group
 end

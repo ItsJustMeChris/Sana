@@ -9,7 +9,7 @@ function sanaUpdate(self, elapsed)
 	sanaTick = sanaTick + elapsed
 	if SanaToggle and sanaTick <= .250 then
 		sanaRotationStart()
-	elseif sanaTick >= 1 then
+		elseif sanaTick >= 1 then
 		sanaTick = 0
 	end
 end

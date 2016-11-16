@@ -29,6 +29,7 @@ LoadFile("Core\\backendFunctions.lua")
 --    Managers
 LoadFile("Managers\\groupManager.lua")
 LoadFile("Managers\\rotationManager.lua")
+LoadFile("Managers\\hotManager.lua")
 
 --    Events
 LoadFile("Events\\Events.lua")
@@ -40,3 +41,4 @@ LoadFile("UnitAuras\\Dispellable.lua")
 
 --    Rotations
 LoadFile("Rotations\\Druid\\restoRotation.lua")
+LoadFile("Rotations\\backendRotation.lua")
