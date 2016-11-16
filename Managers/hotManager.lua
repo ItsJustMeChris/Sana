@@ -13,8 +13,8 @@ end
 function sanaUpdateHotTable(target)
 	for i=1, #hotTable do
 		if hotTable[i].Unit ~= target then
-			hotTable[i].Lifebloom = sanaBuff(target, "Lifebloom", "", "PLAYER")
-			hotTable[i].Rejuv = sanaBuff(target, "Rejuvenation", "", "PLAYER")
+			hotTable[i].Lifebloom = sanaHotIsTrueIsOne(target, "Lifebloom")
+			hotTable[i].Rejuv = sanaHotIsTrueIsOne(target, "Rejuvenation")
 		end
 	end return hotTable
 end
@@ -22,7 +22,14 @@ end
 function sanaUpdateEfflorescence(target)
 	for i=1, #hotTable do
 		if hotTable[i].Unit ~= target then
-			hotTable[i].Effl = sanaBuff(target, "Spring Blossoms", "", "PLAYER")
+			hotTable[i].Effl = sanaHotIsTrueIsOne(target, "Spring Blossoms")
 		end
 	end return hotTable
+end
+
+function sanaHotIsTrueIsOne(target, hot)
+	if sanaBuff(target, hot, "", "PLAYER") then
+		return 1
+		else return 0
+	end
 end

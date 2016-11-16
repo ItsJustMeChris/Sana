@@ -1,7 +1,4 @@
-local lifebloomcount = 0
-local rejuvcount = 0
-local unitsnear = 0
-function sanaEfflorescence()
+ function sanaEfflorescence()
 	for g=1, #Group do
   for i=1, ObjectCount() do
     local name = ObjectName(ObjectWithIndex(i))
@@ -17,18 +14,14 @@ end
 
 function sanaCheckLifebloom()
   for i = 1, #hotTable do
-    if hotTable[i].Lifebloom == true then
-      lifebloomcount = lifebloomcount + 1
-    end
+    lifebloomcount = hotTable[i].Lifebloom + hotTable[i].Lifebloom
   end
   return lifebloomcount
 end
 
 function sanaCheckRejuv()
   for i = 1, #hotTable do
-    if hotTable[i].Rejuv == true then
-      rejuvcount = rejuvcount + 1
-    end
+    rejuvcount = hotTable[i].Rejuv + hotTable[i].Rejuv
   end
   return rejuvcount
 end
@@ -47,4 +40,26 @@ function sanaHowManyNear(target, other)
 			unitsnear = unitsnear + 1
 		end
 	end return unitsnear
+end
+
+function shouldSanaCast(spell, unit)
+	spell = spell
+	if unit == nil then return false end
+	if sanaUnitInRange(unit) and sanaGetCooldown(spell) then
+		if (select(4, GetSpellInfo(spell)) == 0) and UnitMovementFlags("player") <= 1 then 
+			return true
+		elseif (select(4, GetSpellInfo(spell)) ~= 0 and UnitMovementFlags("player") == 0) then
+			return true
+			else print("castThrow") return false
+		end
+	end
+end
+
+function sanaGetCooldown(spellID)
+  RealCoolDown = GetSpellCooldown(spellID) + GetSpellCooldown(61304)
+  if RealCoolDown == 0 then
+    return true
+  else
+    return false
+  end
 end

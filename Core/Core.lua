@@ -24,11 +24,23 @@ function sanaToggle()
 	end
 end
 
+function sanaDebugToggle()
+	if debugMode ~= true then
+		debugMode = true
+		sanaSay("Debugger Enabled")
+	else
+		debugMode = false
+		sanaSay("Debugger Disabled")
+	end
+end
+
 SLASH_SANA1 = '/sana'
 function handler(msg, editbox)
 	if msg == string.lower("toggle") then
 		sanaToggle()
-	else 
+	elseif msg == string.lower("debug") then
+		sanaDebugToggle()
+	else
 		sanaSay("Error")
 	end
 end
