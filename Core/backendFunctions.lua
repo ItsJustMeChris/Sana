@@ -7,6 +7,7 @@ end
 function sanaDebug(action, thingy)
 	print("|cffff69b4[Sana]|r", action, thingy)
 end
+
 function sanaGetHealth(target)
 	return math.floor((UnitHealth(target) / UnitHealthMax(target)) * 100)
 end
