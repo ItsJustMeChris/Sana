@@ -1,5 +1,5 @@
 function sanaRotationStart()
-	local playerSpec = GetSpecializationInfoByID()
+	local playerSpec = GetSpecializationInfo(GetSpecialization())
 	if playerSpec == 102 then
 		balanceRotation()
 	elseif playerSpec == 103 then

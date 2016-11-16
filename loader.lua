@@ -37,3 +37,6 @@ LoadFile("Events\\Events.lua")
 LoadFile("UnitAuras\\Buffs.lua")
 LoadFile("UnitAuras\\DeBuffs.lua")
 LoadFile("UnitAuras\\Dispellable.lua")
+
+--    Rotations
+LoadFile("Rotations\\Druid\\restoRotation.lua")

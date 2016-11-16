@@ -1,8 +1,8 @@
-local SanaToggle
-local sanaTick
+SanaToggle = false
+sanaTick = 0
 function sanaStart()
 	MainFrame = CreateFrame("FRAME", nil, UIParent)
-	MainFrame = SetScript("OnUpdate", sanaUpdate)
+	MainFrame:SetScript("OnUpdate", sanaUpdate)
 end
 
 function sanaUpdate(self, elapsed)
@@ -14,27 +14,6 @@ function sanaUpdate(self, elapsed)
 	end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function sanaToggle()
 	if SanaToggle ~= true then
 		SanaToggle = true
@@ -43,10 +22,6 @@ function sanaToggle()
 		SanaToggle = false
 		sanaSay("Disabled")
 	end
-end
-
-function sanaSay(args)
-	print("|cffff69b4[Sana]|r", args)
 end
 
 SLASH_SANA1 = '/sana'
@@ -58,3 +33,5 @@ function handler(msg, editbox)
 	end
 end
 SlashCmdList["SANA"] = handler
+
+sanaStart()
