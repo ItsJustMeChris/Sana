@@ -44,7 +44,7 @@ function sanaHealerHealth()
 	return healerHealth, healerUnit
 end
 
-function sanaGetRange()
+function sanaGetRange(target, other)
 	local x1,y1,z1 = ObjectPosition(target)
 	local x2,y2,z2 = ObjectPosition(other)
 	return math.floor(math.sqrt((x2-x1)^2 + (y2-y1)^2 + (z2-z1)^2))
