@@ -1,5 +1,5 @@
 SanaDBCheck = false
-
+sanaAffanity = false
 function sanaSay(args)
 	print("|cffff69b4[Sana]|r", args)
 end
@@ -24,6 +24,16 @@ function sanaLowestHealth()
 			lowestUnit = Group[i].Unit
 				return lowestHealth, lowestUnit
 
+		end
+	end
+end
+
+function sanaGetSpecificUnitInfo(var)
+	for i=1, #Group do
+		if Group[var] ~= nil and (Group[var].Role == "DAMAGER" or "NONE") then
+			specificHealth = sanaGetHealth(Group[var].Unit)
+			specificUnit = Group[var].Unit
+				return specificHealth, specificUnit
 		end
 	end
 end
@@ -54,6 +64,15 @@ function sanaGetRange(target, other)
 	local x1,y1,z1 = ObjectPosition(target)
 	local x2,y2,z2 = ObjectPosition(other)
 	return math.floor(math.sqrt((x2-x1)^2 + (y2-y1)^2 + (z2-z1)^2))
+end
+
+function sanaGetMid(target, other)
+	local x1,y1,z1 = ObjectPosition(target)
+	local x2,y2,z2 = ObjectPosition(other)
+	local clickX = (x1 + x2)/2
+	local clickY = (y1 + y2)/2
+	local clickZ = z2
+	return clickX, clickY, clickZ
 end
 
 function sanaLOS(target)
@@ -87,5 +106,4 @@ function sanaUpdateThese()
 	sanaHealerHealth()
 	sanaTankHealth()
 	sanaLowestHealth()
-	sanaEfflorescence()
 end

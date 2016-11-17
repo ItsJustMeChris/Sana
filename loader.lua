@@ -42,3 +42,6 @@ LoadFile("UnitAuras\\Dispellable.lua")
 --    Rotations
 LoadFile("Rotations\\Druid\\restoRotation.lua")
 LoadFile("Rotations\\backendRotation.lua")
+
+--    Spells
+LoadFile("Spells\\restoTalents.lua")

@@ -6,7 +6,7 @@ function sanaFillHotTable()
   local groupType = IsInRaid() and "raid" or "party"
 	for i=1, GetNumGroupMembers() do
 	  			local groupMem = (groupType .. i)
-			table.insert(hotTable, {Unit = groupMem, Lifebloom = sanaBuff(groupMem, "Lifebloom", "", "PLAYER"), Rejuv = sanaBuff(groupMem, "Rejuvenation", "", "PLAYER"), Effl = false})
+			table.insert(hotTable, {Unit = groupMem, Lifebloom = sanaHotIsTrueIsOne(groupMem, "Lifebloom"), Rejuv = sanaHotIsTrueIsOne(groupMem, "Rejuvenation"), Effl = false})
 	end return hotTable
 end
 
