@@ -36,12 +36,22 @@ function sanaDebugToggle()
 	end
 end
 
+function sanaHelp()
+  sanaSay("---Available Commands---")
+  sanaSay("Help:  Reveals this list")
+  sanaSay("Toggle:  Enables and disables the rotation")
+  sanaSay("Debug:  Enables and disables debug chat spam")
+  sanaSay("Your healing, made easy")
+end
+
 SLASH_SANA1 = '/sana'
 function handler(msg, editbox)
 	if msg == string.lower("toggle") then
 		sanaToggle()
 	elseif msg == string.lower("debug") then
 		sanaDebugToggle()
+	elseif msg == string.lower("help") then
+		sanaHelp()
 	else
 		sanaSay("Error")
 	end

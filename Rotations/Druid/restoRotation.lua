@@ -12,7 +12,15 @@ function restoRotation()
 
 
 --		Rejuvenation on tank
-		if shouldSanaCast(Rejuvenation, tankUnit) and not sanaMyBuff(tankUnit, "Rejuvenation", "") 
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and not sanaMyBuff(tankUnit, "Rejuvenation (Germination)", "") and not sanaMyBuff(tankUnit, "Rejuvenation", "") 
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, tankUnit)
+							sanaDebug("Gemination or Rejuvenation on", UnitName(tankUnit))
+		end
+
+		if not sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and not sanaMyBuff(tankUnit, "Rejuvenation", "") 
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
 				and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max 
 					then
@@ -78,7 +86,7 @@ function restoRotation()
 		end
 
 --		Incarnation Tree if tank under X%
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Incarnation_Tree_Of_Life, tankUnit)
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and not UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Incarnation_Tree_Of_Life, tankUnit)
 			and tankHealth >= Config.Tank_Incarnation_Tree_Of_Life_Min and tankHealth <= Config.Tank_Incarnation_Tree_Of_Life_Max
 				then
 					CastSpellByID(Incarnation_Tree_Of_Life)
@@ -93,100 +101,20 @@ function restoRotation()
 						sanaDebug("Ironbark on", UnitName(tankUnit))
 		end
 
-
-										--+--------------+--
-										--|Healer Healing|--
-										--+--------------+--
-
-
---		Rejuvenation on healer
-		if shouldSanaCast(Rejuvenation, healerUnit) and not sanaMyBuff(healerUnit, "Rejuvenation", "") 
-			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
-				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max 
-					then
-						CastSpellByID(Rejuvenation, healerUnit)
-							sanaDebug("Rejuvenation on", UnitName(healerUnit))
-		end
-
---		Lifebloom on healer
-		if shouldSanaCast(Lifebloom, healerUnit) and not sanaMyBuff(healerUnit, "Lifebloom", "")
-			and sanaCheckLifebloom() <= Config.Lifebloom_Active_Hots
-				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max
-					then
-						CastSpellByID(Lifebloom, healerUnit)
-							sanaDebug("Lifebloom on", UnitName(healerUnit))
-		end
-
---		Regrowth on healer if not have buff
-		if shouldSanaCast(Regrowth, healerUnit) and not sanaMyBuff(healerUnit, "Regrowth", "")
-			and healerHealth >= Config.Healer_Regrowth_Buff_Min and healerHealth <= Config.Healer_Regrowth_Buff_Max
-				then
-					CastSpellByID(Regrowth, healerUnit)
-						sanaDebug("Regrowth for buff on", UnitName(healerUnit))
-		end
-
---		Regrowth on healer
-		if shouldSanaCast(Regrowth, healerUnit)
-			and healerHealth >= Config.Healer_Regrowth_Min and healerHealth <= Config.Healer_Regrowth_Max
-				then
-					CastSpellByID(Regrowth, healerUnit)
-						sanaDebug("Regrowth to heal on", UnitName(healerUnit))
-		end
-
---		Healing touch on healer
-		if shouldSanaCast(Healing_Touch, healerUnit)
-			and healerHealth >= Config.Healer_Healing_Touch_Min and healerHealth <= Config.Healer_Healing_Touch_Max
-				then
-					CastSpellByID(Healing_Touch, healerUnit)
-						sanaDebug("Healing touch on", UnitName(healerUnit))
-		end
-
---		Swiftmend on healer
-		if shouldSanaCast(Swiftmend, healerUnit)
-			and healerHealth >= Config.Healer_Swift_Mend_Min and healerHealth <= Config.Healer_Swift_Mend_Max
-				then
-					CastSpellByID(Swiftmend, healerUnit)
-						sanaDebug("Swiftmend on", UnitName(healerUnit))
-		end
-
---		Essence of Ghanir on healer
-		if sanaEquipped(128306, 16) and shouldSanaCast(Essence_Of_Ghanir, healerUnit)
-			and healerHealth >= Config.Healer_Essence_Of_Ghanir_Max and healerHealth <= Config.Healer_Essence_Of_Ghanir_Max
-				then
-					CastSpellByID(Essence_Of_Ghanir, healerUnit)
-						sanaDebug("Essence Of Ghanir on", UnitName(healerUnit))
-		end
-
---		Cenarion Ward on healer
-		if sanaTalentTrue(Cenarion_Ward_Talent) and shouldSanaCast(Cenarion_Ward, healerUnit)
-			and healerHealth >= Config.Healer_Cenarion_Ward_Min and healerHealth <= Config.Healer_Cenarion_Ward_Max
-				then
-					CastSpellByID(Cenarion_Ward, healerUnit)
-						sanaDebug("Cenarion Ward on", UnitName(healerUnit))
-		end
-
---		Incarnation tree of life if healer under X%
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Incarnation_Tree_Of_Life, healerUnit)
-			and healerHealth >= Config.Healer_Incarnation_Tree_Of_Life_Min and healerHealth <= Config.Healer_Incarnation_Tree_Of_Life_Max
-				then
-					CastSpellByID(Incarnation_Tree_Of_Life)
-						sanaDebug("Incarnation: Tree Of Life caused by", UnitName(healerUnit))
-		end
-
---		Ironbark on healer
-		if shouldSanaCast(Ironbark, healerUnit)
-			and healerHealth >= Config.Healer_Ironbark_Min and healerHealth <= Config.Healer_Ironbark_Max
-				then
-					CastSpellByID(Ironbark, healerUnit)
-						sanaDebug("Ironbark on", UnitName(healerUnit))
-		end
-
 										--+--------------+--
 										--|Lowest Healing|--
 										--+--------------+--
 
 --		Rejuvenation on lowest
-		if shouldSanaCast(Rejuvenation, lowestUnit) and not sanaMyBuff(lowestUnit, "Rejuvenation", "") 
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, lowestUnit) and not sanaMyBuff(lowestUnit, "Rejuvenation", "") 
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, lowestUnit)
+							sanaDebug("Gemination or Rejuvenation", UnitName(lowestUnit))
+		end
+
+		if not sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, lowestUnit) and not sanaMyBuff(lowestUnit, "Rejuvenation", "") 
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
 				and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max 
 					then
@@ -252,7 +180,7 @@ function restoRotation()
 		end
 
 --		Incarnation tree of life on lowest
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Incarnation_Tree_Of_Life, lowestUnit)
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and not UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Incarnation_Tree_Of_Life, lowestUnit)
 			and lowestHealth >= Config.Lowest_Incarnation_Tree_Of_Life_Min and lowestHealth <= Config.Lowest_Incarnation_Tree_Of_Life_Max
 				then
 					CastSpellByID(Incarnation_Tree_Of_Life)
@@ -266,6 +194,103 @@ function restoRotation()
 					CastSpellByID(Ironbark, lowestUnit)
 						sanaDebug("Ironbark on", UnitName(lowestUnit))
 		end
+
+
+										--+--------------+--
+										--|Healer Healing|--
+										--+--------------+--
+
+
+--		Rejuvenation on healer
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, healerUnit) and not sanaMyBuff(healerUnit, "Rejuvenation (Germination)", "") and not sanaMyBuff(healerUnit, "Rejuvenation", "") 
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, healerUnit)
+							sanaDebug("Germination or Rejuvenation on", UnitName(healerUnit))
+		end
+
+		if not sanaTalentTrue(Germination_Talent) and  shouldSanaCast(Rejuvenation, healerUnit) and not sanaMyBuff(healerUnit, "Rejuvenation", "") 
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, healerUnit)
+							sanaDebug("Rejuvenation on", UnitName(healerUnit))
+		end
+
+--		Lifebloom on healer
+		if shouldSanaCast(Lifebloom, healerUnit) and not sanaMyBuff(healerUnit, "Lifebloom", "")
+			and sanaCheckLifebloom() <= Config.Lifebloom_Active_Hots
+				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max
+					then
+						CastSpellByID(Lifebloom, healerUnit)
+							sanaDebug("Lifebloom on", UnitName(healerUnit))
+		end
+
+--		Regrowth on healer if not have buff
+		if shouldSanaCast(Regrowth, healerUnit) and not sanaMyBuff(healerUnit, "Regrowth", "")
+			and healerHealth >= Config.Healer_Regrowth_Buff_Min and healerHealth <= Config.Healer_Regrowth_Buff_Max
+				then
+					CastSpellByID(Regrowth, healerUnit)
+						sanaDebug("Regrowth for buff on", UnitName(healerUnit))
+		end
+
+--		Regrowth on healer
+		if shouldSanaCast(Regrowth, healerUnit)
+			and healerHealth >= Config.Healer_Regrowth_Min and healerHealth <= Config.Healer_Regrowth_Max
+				then
+					CastSpellByID(Regrowth, healerUnit)
+						sanaDebug("Regrowth to heal on", UnitName(healerUnit))
+		end
+
+--		Healing touch on healer
+		if shouldSanaCast(Healing_Touch, healerUnit)
+			and healerHealth >= Config.Healer_Healing_Touch_Min and healerHealth <= Config.Healer_Healing_Touch_Max
+				then
+					CastSpellByID(Healing_Touch, healerUnit)
+						sanaDebug("Healing touch on", UnitName(healerUnit))
+		end
+
+--		Swiftmend on healer
+		if shouldSanaCast(Swiftmend, healerUnit)
+			and healerHealth >= Config.Healer_Swift_Mend_Min and healerHealth <= Config.Healer_Swift_Mend_Max
+				then
+					CastSpellByID(Swiftmend, healerUnit)
+						sanaDebug("Swiftmend on", UnitName(healerUnit))
+		end
+
+--		Essence of Ghanir on healer
+		if sanaEquipped(128306, 16) and shouldSanaCast(Essence_Of_Ghanir, healerUnit)
+			and healerHealth >= Config.Healer_Essence_Of_Ghanir_Max and healerHealth <= Config.Healer_Essence_Of_Ghanir_Max
+				then
+					CastSpellByID(Essence_Of_Ghanir, healerUnit)
+						sanaDebug("Essence Of Ghanir on", UnitName(healerUnit))
+		end
+
+--		Cenarion Ward on healer
+		if sanaTalentTrue(Cenarion_Ward_Talent) and shouldSanaCast(Cenarion_Ward, healerUnit)
+			and healerHealth >= Config.Healer_Cenarion_Ward_Min and healerHealth <= Config.Healer_Cenarion_Ward_Max
+				then
+					CastSpellByID(Cenarion_Ward, healerUnit)
+						sanaDebug("Cenarion Ward on", UnitName(healerUnit))
+		end
+
+--		Incarnation tree of life if healer under X%
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and not UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Incarnation_Tree_Of_Life, healerUnit)
+			and healerHealth >= Config.Healer_Incarnation_Tree_Of_Life_Min and healerHealth <= Config.Healer_Incarnation_Tree_Of_Life_Max
+				then
+					CastSpellByID(Incarnation_Tree_Of_Life)
+						sanaDebug("Incarnation: Tree Of Life caused by", UnitName(healerUnit))
+		end
+
+--		Ironbark on healer
+		if shouldSanaCast(Ironbark, healerUnit)
+			and healerHealth >= Config.Healer_Ironbark_Min and healerHealth <= Config.Healer_Ironbark_Max
+				then
+					CastSpellByID(Ironbark, healerUnit)
+						sanaDebug("Ironbark on", UnitName(healerUnit))
+		end
+
 
 		--sanaEfflorscence()
 
