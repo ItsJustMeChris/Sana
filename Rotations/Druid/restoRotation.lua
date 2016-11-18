@@ -1,9 +1,9 @@
 
 function restoRotation()
 	if sanaInCombat() then
-		sanaUpdateThese()
-		sanaCheckRejuv()
-		sanaCheckLifebloom()	
+		sanaLowestHealth() 
+		sanaTankHealth() 
+		sanaHealerHealth()
 		
 
 										--+------------+--
@@ -336,6 +336,5 @@ function restoRotation()
 		else 
 	 		return sanaGetHealth(a.Unit) < sanaGetHealth(b.Unit) 
 		end 
-	end)
-	sanaUpdateThese()
+	end)	
 end

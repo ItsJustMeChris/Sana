@@ -43,7 +43,7 @@ end
 
 function sanaTankHealth()
 	for i=1, #Group do
-		if Group[i] ~= nil and Group[i].Role == "TANK" or Group[i].Name == "Oto the Protector"  then
+		if Group[i] ~= nil and Group[i].Role == "TANK" then
 			tankHealth = sanaGetHealth(Group[i].Unit)
 			tankUnit = Group[i].Unit
 			if tankHealth ~= nil then
@@ -105,12 +105,6 @@ function sanaUnitInRange(unit)
 	if UnitInRange(unit) then
 		return true
 	end
-end
-
-function sanaUpdateThese()
-	sanaHealerHealth()
-	sanaTankHealth()
-	sanaLowestHealth()
 end
 
 function sanaEquipped(item, slot)

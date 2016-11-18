@@ -10,6 +10,8 @@ function sanaUpdate(self, elapsed)
 	if SanaToggle and sanaTick <= .250 then
 		sanaRotationStart()
 		elseif sanaTick >= 1 then
+		sanaCheckRejuv()
+		sanaCheckLifebloom()	
 		sanaTick = 0
 	end
 end
