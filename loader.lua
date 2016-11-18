@@ -22,6 +22,9 @@ function LoadFile(FilePath,LoadMsg)
   end
 end
 
+--    Config
+LoadFile("Config.lua")
+
 --    Core
 LoadFile("Core\\Core.lua")
 LoadFile("Core\\backendFunctions.lua")
@@ -45,3 +48,4 @@ LoadFile("Rotations\\backendRotation.lua")
 
 --    Spells
 LoadFile("Spells\\restoTalents.lua")
+LoadFile("Spells\\restoSpells.lua")

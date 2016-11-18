@@ -22,8 +22,9 @@ function sanaLowestHealth()
 		if Group[i] ~= nil and (Group[i].Role == "DAMAGER" or "NONE") then
 			lowestHealth = sanaGetHealth(Group[i].Unit)
 			lowestUnit = Group[i].Unit
+			if lowestHealth ~= nil then
 				return lowestHealth, lowestUnit
-
+			end
 		end
 	end
 end
@@ -33,18 +34,21 @@ function sanaGetSpecificUnitInfo(var)
 		if Group[var] ~= nil and (Group[var].Role == "DAMAGER" or "NONE") then
 			specificHealth = sanaGetHealth(Group[var].Unit)
 			specificUnit = Group[var].Unit
+			if specificHealth ~= nil then
 				return specificHealth, specificUnit
+			end
 		end
 	end
 end
 
 function sanaTankHealth()
 	for i=1, #Group do
-		if Group[i] ~= nil and Group[i].Role == "TANK" then
+		if Group[i] ~= nil and Group[i].Role == "TANK" or Group[i].Name == "Oto the Protector"  then
 			tankHealth = sanaGetHealth(Group[i].Unit)
 			tankUnit = Group[i].Unit
+			if tankHealth ~= nil then
 				return tankHealth, tankUnit
-
+			end
 		end
 	end
 end
@@ -54,8 +58,9 @@ function sanaHealerHealth()
 		if Group[i] ~= nil and Group[i].Role == "HEALER" then
 			healerHealth = sanaGetHealth(Group[i].Unit)
 			healerUnit = Group[i].Unit
+			if healerHealth ~= nil then
 				return healerHealth, healerUnit
-
+			end
 		end
 	end
 end
@@ -106,4 +111,14 @@ function sanaUpdateThese()
 	sanaHealerHealth()
 	sanaTankHealth()
 	sanaLowestHealth()
+end
+
+function sanaEquipped(item, slot)
+	if GetInventoryItemID("player", slot) == item then
+		return true
+	end
+end
+
+function sanaTalentTrue(talent)
+	return select(10, GetTalentInfoByID(talent))
 end

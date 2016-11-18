@@ -12,12 +12,11 @@ function sanaCheckRejuv()
   return rejuvcount
 end
 
-function sanaShouldIEffl()
-	for i=1, #Group do
-		if unitsnear == 3 then
-			return true
-		end
-	end
+function sanaCheckEffl()
+  for i = 1, #hotTable do
+    efflcount = hotTable[i].Effl + hotTable[i].Effl
+  end
+  return efflcount
 end
 
 function sanaHowManyNear(target, other, distance)
@@ -57,7 +56,7 @@ end
 
 function sanaWildGrowth()
 	sanaGetSpecificUnitInfo(3)
-	if shouldSanaCast(48438, specificUnit) and not sanaMyBuff(specificUnit, "Wild Growth", "") and sanaHowManyNear("player", any, 30) >= 3 and specificHealth and specificHealth <= 40 then
+	if shouldSanaCast(48438, specificUnit) and not sanaMyBuff(specificUnit, "Wild Growth", "") and sanaHowManyNear("player", any, 30) >= 3 and specificHealth <= 75 then
 		return true
 		else return false
 	end
@@ -74,9 +73,9 @@ function sanaEfflorscence()
 		local x1, y1, z1 = ObjectPosition(Group[i].Unit)
 		local x2, y2, z2 = ObjectPosition(Group[i].Unit)
 		local x3, y3, z3 = ObjectPosition(Group[i].Unit)
-		if sanaHowManyNear(Group[i].Unit, any, 15) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 then
+		if sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 and sanaCheckEffl() < 3 then
 			CastSpellByID(145205)
-			ClickPosition(sanaGetMid(Group[i.Unit], "player"))
+			ClickPosition(sanaGetMid(Group[i].Unit, "player"))
 		end
 	end
 end
