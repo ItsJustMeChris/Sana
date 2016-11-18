@@ -21,6 +21,7 @@ function sanaUpdateHotTable(target)
 	end return hotTable
 end
 
+
 function sanaUnitInEffl(unit)
 	for i=1, ObjectCount() do
 		for g=1, #Group do

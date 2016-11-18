@@ -5,19 +5,80 @@ function restoRotation()
 		sanaTankHealth() 
 		sanaHealerHealth()
 		
+										--+----------------------+--
+										--|Stronk Buffers Healing|--
+										--+----------------------+--
+
+		if sanaWildGrowth() then
+			CastSpellByID(Wild_Growth, tankUnit)
+		end
+		--sanaEfflorscence()
+
+										--+--------------------+--
+										--|Tree of Life Healing|--
+										--+--------------------+--
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Regrowth, tankUnit)
+			and tankHealth >= Config.Tank_Incarnation_Tree_Of_Life_Min and tankHealth <= Config.Tank_Incarnation_Tree_Of_Life_Max
+				then
+					CastSpellByID(Regrowth, tankUnit)
+						sanaDebug("Regrowth under TOL on", UnitName(tankUnit))
+		end
+
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and not sanaMyBuff(tankUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, tankUnit)
+			and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max
+				then
+					CastSpellByID(Rejuvenation, tankUnit)
+						sanaDebug("Rejuv under TOL on", UnitName(tankUnit))
+		end
+
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Regrowth, lowestUnit)
+			and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max
+				then
+					CastSpellByID(Regrowth, tankUnit)
+						sanaDebug("Regrowth under TOL on", UnitName(lowestUnit))
+		end
+
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and not sanaMyBuff(lowestUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, lowestUnit)
+			and lowestHealth >= Config.Tank_Rejuvenation_Min and lowestHealth <= Config.Tank_Rejuvenation_Max
+				then
+					CastSpellByID(Rejuvenation, lowestUnit)
+						sanaDebug("Rejuv under TOL on", UnitName(lowestUnit))
+		end
+
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Regrowth, healerUnit)
+			and healerHealth >= Config.Lowest_Rejuvenation_Min and healerHealth <= Config.Lowest_Rejuvenation_Max
+				then
+					CastSpellByID(Regrowth, healerUnit)
+						sanaDebug("Regrowth under TOL on", UnitName(healerUnit))
+		end
+
+		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and not sanaMyBuff(healerUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, healerUnit)
+			and healerHealth >= Config.Tank_Rejuvenation_Min and healerHealth <= Config.Tank_Rejuvenation_Max
+				then
+					CastSpellByID(Rejuvenation, healerUnit)
+						sanaDebug("Rejuv under TOL on", UnitName(healerUnit))
+		end
 
 										--+------------+--
 										--|Tank Healing|--
 										--+------------+--
 
-
 --		Rejuvenation on tank
-		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and not sanaMyBuff(tankUnit, "Rejuvenation (Germination)", "") and not sanaMyBuff(tankUnit, "Rejuvenation", "") 
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and not sanaMyBuff(tankUnit, "Rejuvenation", "") 
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
 				and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max 
 					then
 						CastSpellByID(Rejuvenation, tankUnit)
-							sanaDebug("Gemination or Rejuvenation on", UnitName(tankUnit))
+							sanaDebug("Rejuvenation on", UnitName(tankUnit))
+		end
+
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and sanaMyBuff(tankUnit, "Rejuvenation", "") and not sanaMyBuff(tankUnit, "Rejuvenation (Germination)", "")
+
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, tankUnit)
+							sanaDebug("Gemination on", UnitName(tankUnit))
 		end
 
 		if not sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and not sanaMyBuff(tankUnit, "Rejuvenation", "") 
@@ -111,7 +172,15 @@ function restoRotation()
 				and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max 
 					then
 						CastSpellByID(Rejuvenation, lowestUnit)
-							sanaDebug("Gemination or Rejuvenation", UnitName(lowestUnit))
+							sanaDebug("Rejuvenation on", UnitName(lowestUnit))
+		end
+
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, lowestUnit) and sanaMyBuff(lowestUnit, "Rejuvenation", "") and not sanaMyBuff(lowestUnit, "Rejuvenation (Germination)", "")
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, lowestUnit)
+							sanaDebug("Germination on", UnitName(lowestUnit))
 		end
 
 		if not sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, lowestUnit) and not sanaMyBuff(lowestUnit, "Rejuvenation", "") 
@@ -202,12 +271,20 @@ function restoRotation()
 
 
 --		Rejuvenation on healer
-		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, healerUnit) and not sanaMyBuff(healerUnit, "Rejuvenation (Germination)", "") and not sanaMyBuff(healerUnit, "Rejuvenation", "") 
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, healerUnit) and not sanaMyBuff(healerUnit, "Rejuvenation", "") 
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
 				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max 
 					then
 						CastSpellByID(Rejuvenation, healerUnit)
-							sanaDebug("Germination or Rejuvenation on", UnitName(healerUnit))
+							sanaDebug("Rejuvenation on", UnitName(healerUnit))
+		end
+
+		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, healerUnit) and sanaMyBuff(healerUnit, "Rejuvenation", "") and not sanaMyBuff(healerUnit, "Rejuvenation (Germination)", "")
+			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots 
+				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max 
+					then
+						CastSpellByID(Rejuvenation, healerUnit)
+							sanaDebug("Germination on", UnitName(healerUnit))
 		end
 
 		if not sanaTalentTrue(Germination_Talent) and  shouldSanaCast(Rejuvenation, healerUnit) and not sanaMyBuff(healerUnit, "Rejuvenation", "") 
@@ -292,12 +369,12 @@ function restoRotation()
 		end
 
 
-		--sanaEfflorscence()
+
+										--+--------+--
+										--|Affanity|--
+										--+--------+--
 
 
-
-
---		Handle Affanities
 --if sanaAffanity == true then
 --	if select(10, GetTalentInfoByID(Guardian_Affinity)) == true then
 --

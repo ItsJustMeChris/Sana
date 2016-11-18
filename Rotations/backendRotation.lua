@@ -56,7 +56,7 @@ end
 
 function sanaWildGrowth()
 	sanaGetSpecificUnitInfo(3)
-	if shouldSanaCast(48438, specificUnit) and not sanaMyBuff(specificUnit, "Wild Growth", "") and sanaHowManyNear("player", any, 30) >= 3 and specificHealth <= 75 then
+	if shouldSanaCast(Wild_Growth, specificUnit) and not sanaMyBuff(specificUnit, "Wild Growth", "") and sanaHowManyNear("player", any, 30) >= 3 and specificHealth <= 75 then
 		return true
 		else return false
 	end
@@ -73,7 +73,7 @@ function sanaEfflorscence()
 		local x1, y1, z1 = ObjectPosition(Group[i].Unit)
 		local x2, y2, z2 = ObjectPosition(Group[i].Unit)
 		local x3, y3, z3 = ObjectPosition(Group[i].Unit)
-		if sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 and sanaCheckEffl() < 3 then
+		if sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 and (sanaUnitInEffl(Group[i].Unit) < 1 or sanaUnitInEffl(Group[i].Unit == nil)) then
 			CastSpellByID(145205)
 			ClickPosition(sanaGetMid(Group[i].Unit, "player"))
 		end
