@@ -37,6 +37,11 @@ Config = {
 	Tank_Incarnation_Tree_Of_Life_Max = 30,
 	--Cast Incarnation Tree of Life on tank unit at no lower than X% health
 	Tank_Incarnation_Tree_Of_Life_Min = 10,
+
+	Tank_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Tank_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Tank_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Tank_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on tank unit at X% health
 	Tank_Ironbark_Max = 30,
 	--Cast Ironbark on tank unit at no lower than X% health
@@ -80,6 +85,10 @@ Config = {
 	Tank_Lowest_Threshold_Incarnation_Tree_Of_Life_Max = 10,
 	--Cast Incarnation Tree of Life on tank if lowest health is no less than X% health
 	Tank_Lowest_Threshold_Incarnation_Tree_Of_Life_Min = 10,
+	Tank_Lowest_Threshold_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Tank_Lowest_Threshold_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Tank_Lowest_Threshold_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Tank_Lowest_Threshold_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on tank if lowest health is no more than X% health
 	Tank_Lowest_Threshold_Ironbark_Max = 10,
 	--Cast Ironbark on tank if lowest health is no less than X% health
@@ -123,6 +132,10 @@ Config = {
 	Tank_Healer_Threshold_Incarnation_Tree_Of_Life_Max = 10,
 	--Cast Incarnation Tree of Life on tank if healer health is no less than X% health
 	Tank_Healer_Threshold_Incarnation_Tree_Of_Life_Min = 10,
+	Tank_Healer_Threshold_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Tank_Healer_Threshold_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Tank_Healer_Threshold_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Tank_Healer_Threshold_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on tank if healer health is no more than X% health
 	Tank_Healer_Threshold_Ironbark_Max = 10,
 	--Cast Ironbark on tank if healer health is no less than X% health
@@ -166,6 +179,10 @@ Config = {
 	Healer_Incarnation_Tree_Of_Life_Max = 50,
 	--Cast Incarnation Tree of Life on healer unit at no lower than X% health
 	Healer_Incarnation_Tree_Of_Life_Min = 40,
+	Healer_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Healer_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Healer_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Healer_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on healer unit at X% health
 	Healer_Ironbark_Max = 50,
 	--Cast Ironbark on healer unit at no lower than X% health
@@ -209,6 +226,10 @@ Config = {
 	Healer_Lowest_Threshold_Incarnation_Tree_Of_Life_Max = 10,
 	--Cast Incarnation Tree of Life on healer if lowest health is no less than X% health
 	Healer_Lowest_Threshold_Incarnation_Tree_Of_Life_Min = 10,
+	Healer_Lowest_Threshold_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Healer_Lowest_Threshold_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Healer_Lowest_Threshold_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Healer_Lowest_Threshold_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on healer if lowest health is no more than X% health
 	Healer_Lowest_Threshold_Ironbark_Max = 10,
 	--Cast Ironbark on healer if lowest health is no less than X% health
@@ -252,6 +273,10 @@ Config = {
 	Healer_Tank_Threshold_Incarnation_Tree_Of_Life_Max = 10,
 	--Cast Incarnation Tree of Life on healer if tank health is no less than X% health
 	Healer_Tank_Threshold_Incarnation_Tree_Of_Life_Min = 10,
+	Healer_Tank_Threshold_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Healer_Tank_Threshold_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Healer_Tank_Threshold_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Healer_Tank_Threshold_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on healer if tank health is no more than X% health
 	Healer_Tank_Threshold_Ironbark_Max = 10,
 	--Cast Ironbark on healer if tank health is no less than X% health
@@ -295,6 +320,10 @@ Config = {
 	Lowest_Incarnation_Tree_Of_Life_Max = 35,
 	--Cast Incarnation Tree of Life on lowest unit at no lower than X% health
 	Lowest_Incarnation_Tree_Of_Life_Min = 10,
+	Lowest_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Lowest_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Lowest_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Lowest_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on lowest unit at X% health
 	Lowest_Ironbark_Max = 30,
 	--Cast Ironbark on lowest unit at no lower than X% health
@@ -338,6 +367,10 @@ Config = {
 	Lowest_Tank_Threshold_Incarnation_Tree_Of_Life_Max = 10,
 	--Cast Incarnation Tree of Life on lowest if tank health is no less than X% health
 	Lowest_Tank_Threshold_Incarnation_Tree_Of_Life_Min = 10,
+	Lowest_Tank_Threshold_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Lowest_Tank_Threshold_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Lowest_Tank_Threshold_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Lowest_Tank_Threshold_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on lowest if tank health is no more than X% health
 	Lowest_Tank_Threshold_Ironbark_Max = 10,
 	--Cast Ironbark on lowest if tank health is no less than X% health
@@ -381,6 +414,10 @@ Config = {
 	Lowest_Healer_Threshold_Incarnation_Tree_Of_Life_Max = 10,
 	--Cast Incarnation Tree of Life on lowest if healer health is no less than X% health
 	Lowest_Healer_Threshold_Incarnation_Tree_Of_Life_Min = 10,
+	Lowest_Healer_Threshold_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
+	Lowest_Healer_Threshold_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
+	Lowest_Healer_Threshold_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Lowest_Healer_Threshold_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on lowest if healer health is no more than X% health
 	Lowest_Healer_Threshold_Ironbark_Max = 10,
 	--Cast Ironbark on lowest if healer health is no less than X% health
@@ -393,4 +430,8 @@ Config = {
 	Germination_Active_Hots = 5,
 	--Lifebloom max = 1
 	Lifebloom_Active_Hots = 1,
+	Flourish_Min = 60,
+	Flourish_Max = 80,
+	Renewal_Min = 40,
+	Renewal_Max = 60,
 }

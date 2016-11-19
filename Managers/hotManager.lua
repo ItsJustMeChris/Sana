@@ -15,23 +15,24 @@ function sanaUpdateHotTable(target)
 		if hotTable[i].Unit ~= target or hotTable[i].Unit ~= nil then
 			hotTable[i].Lifebloom = sanaHotIsTrueIsOne(target, "Lifebloom")
 			hotTable[i].Rejuv = sanaHotIsTrueIsOne(target, "Rejuvenation")
-			hotTable[i].Effl = sanaUnitInEffl(target)
 			hotTable[i].Germination = sanaHotIsTrueIsOne(target, "Rejuvenation (Germination)")
 		end
 	end return hotTable
 end
 
 
-function sanaUnitInEffl(unit)
+function sanaUnitInEffl()
 	for i=1, ObjectCount() do
 		for g=1, #Group do
+			for h=1, #hotTable do
 		local name = ObjectName(ObjectWithIndex(i))
 		local object = ObjectWithIndex(i)
 		local x,y,z = ObjectPosition(object)
 		if name == "Efflorescence" and ObjectExists(object) then
-			if sanaGetRange(object, unit) <= 10 then
-			return 1
-			else return 0
+			if sanaGetRange(object, Group[g].Name) <= 10 then
+				hotTable[h].Effl = 1
+				else hotTable[h].Effl = 0
+			end
 			end
 		end
 		end

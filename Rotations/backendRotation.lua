@@ -34,11 +34,12 @@ end
 
 function shouldSanaCast(spell, unit)
 	spell = spell
+    currentlyChanneling = select(1, UnitChannelInfo("player"))
 	if unit == nil then return false end
 	if sanaUnitInRange(unit) and sanaGetCooldown(spell) then
 		if (select(4, GetSpellInfo(spell)) == 0) and UnitMovementFlags("player") <= 1 then 
 			return true
-		elseif (select(4, GetSpellInfo(spell)) ~= 0 and UnitMovementFlags("player") == 0) then
+		elseif (select(4, GetSpellInfo(spell)) ~= 0 and UnitMovementFlags("player") == 0 ) then
 			return true
 			else return false
 		end
@@ -62,6 +63,14 @@ function sanaWildGrowth()
 	end
 end
 
+function sanaTranquility()
+	sanaGetSpecificUnitInfo(3)
+	if shouldSanaCast(Tranquility, specificUnit) and sanaHowManyNear("player", any, 30) >= 3 and specificHealth <= 40 then
+		return true
+		else return false
+	end
+end
+
 function sanaCentroid(x1,x2,x3,y1,y2,y3)
 	centroidX = (x1 + x2 + x3)/3
 	centroidY = (y1 + y2 + y3)/3
@@ -73,7 +82,7 @@ function sanaEfflorscence()
 		local x1, y1, z1 = ObjectPosition(Group[i].Unit)
 		local x2, y2, z2 = ObjectPosition(Group[i].Unit)
 		local x3, y3, z3 = ObjectPosition(Group[i].Unit)
-		if sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 and (sanaUnitInEffl(Group[i].Unit) < 1 or sanaUnitInEffl(Group[i].Unit == nil)) then
+		if sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 and sanaCheckEffl() < 3 then
 			CastSpellByID(145205)
 			ClickPosition(sanaGetMid(Group[i].Unit, "player"))
 		end

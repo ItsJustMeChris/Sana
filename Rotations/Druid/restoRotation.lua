@@ -12,48 +12,68 @@ function restoRotation()
 		if sanaWildGrowth() then
 			CastSpellByID(Wild_Growth, tankUnit)
 		end
-		--sanaEfflorscence()
 
+		if sanaTranquility() then
+			CastSpellByID(Wild_Growth, tankUnit)
+		end
+
+
+		sanaEfflorscence()
+
+		if sanaTalentTrue(Renewal_Talent) and shouldSanaCast(Renewal, "player")
+			and healerHealth >= Config.Renewal_Min and healerHealth <= Config.Renewal_Max
+				then
+					CastSpellByID(Renewal)
+						sanaDebug("Renewal on", UnitName(healerUnit))
+		end
+
+		if sanaTalentTrue(Flourish_Talent) and shouldSanaCast(Flourish, "player")
+			and sanaCheckRejuv() == Config.Rejuvenation_Active_Hots
+				and healerHealth >= Config.Flourish_Min and healerHealth <= Config.Flourish_Max
+					then
+						CastSpellByID(Flourish)
+							sanaDebug("Flourish on", UnitName(healerUnit))
+		end
 										--+--------------------+--
 										--|Tree of Life Healing|--
 										--+--------------------+--
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Regrowth, tankUnit)
-			and tankHealth >= Config.Tank_Incarnation_Tree_Of_Life_Min and tankHealth <= Config.Tank_Incarnation_Tree_Of_Life_Max
+		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Regrowth, tankUnit)
+			and tankHealth >= Config.Tank_Incarnation_Tree_Of_Life_Regrowth_Min and tankHealth <= Config.Tank_Incarnation_Tree_Of_Life_Regrowth_Max
 				then
 					CastSpellByID(Regrowth, tankUnit)
 						sanaDebug("Regrowth under TOL on", UnitName(tankUnit))
 		end
 
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and not sanaMyBuff(tankUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, tankUnit)
-			and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max
+		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and not sanaMyBuff(tankUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, tankUnit)
+			and tankHealth >= Config.Tank_Incarnation_Tree_Of_Life_Rejuv_Min and tankHealth <= Config.Tank_Incarnation_Tree_Of_Life_Rejuv_Max
 				then
 					CastSpellByID(Rejuvenation, tankUnit)
 						sanaDebug("Rejuv under TOL on", UnitName(tankUnit))
 		end
 
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Regrowth, lowestUnit)
-			and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max
+		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Regrowth, lowestUnit)
+			and lowestHealth >= Config.Lowest_Incarnation_Tree_Of_Life_Regrowth_Min and lowestHealth <= Config.Lowest_Incarnation_Tree_Of_Life_Regrowth_Max
 				then
 					CastSpellByID(Regrowth, tankUnit)
 						sanaDebug("Regrowth under TOL on", UnitName(lowestUnit))
 		end
 
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and not sanaMyBuff(lowestUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, lowestUnit)
-			and lowestHealth >= Config.Tank_Rejuvenation_Min and lowestHealth <= Config.Tank_Rejuvenation_Max
+		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and not sanaMyBuff(lowestUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, lowestUnit)
+			and lowestHealth >= Config.Lowest_Incarnation_Tree_Of_Life_Rejuv_Min and lowestHealth <= Config.Lowest_Incarnation_Tree_Of_Life_Rejuv_Max
 				then
 					CastSpellByID(Rejuvenation, lowestUnit)
 						sanaDebug("Rejuv under TOL on", UnitName(lowestUnit))
 		end
 
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and shouldSanaCast(Regrowth, healerUnit)
-			and healerHealth >= Config.Lowest_Rejuvenation_Min and healerHealth <= Config.Lowest_Rejuvenation_Max
+		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Regrowth, healerUnit)
+			and healerHealth >= Config.Healer_Incarnation_Tree_Of_Life_Regrowth_Min and healerHealth <= Config.Healer_Incarnation_Tree_Of_Life_Regrowth_Max
 				then
 					CastSpellByID(Regrowth, healerUnit)
 						sanaDebug("Regrowth under TOL on", UnitName(healerUnit))
 		end
 
-		if sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and UnitAura("player", "Incarnation: Tree of Life") and not sanaMyBuff(healerUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, healerUnit)
-			and healerHealth >= Config.Tank_Rejuvenation_Min and healerHealth <= Config.Tank_Rejuvenation_Max
+		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and not sanaMyBuff(healerUnit, "Rejuvenation", "") and shouldSanaCast(Regrowth, healerUnit)
+			and healerHealth >= Config.Healer_Incarnation_Tree_Of_Life_Rejuv_Min and healerHealth <= Config.Healer_Incarnation_Tree_Of_Life_Rejuv_Max
 				then
 					CastSpellByID(Rejuvenation, healerUnit)
 						sanaDebug("Rejuv under TOL on", UnitName(healerUnit))
