@@ -1,5 +1,6 @@
 function sanaDeBuff(target, buff, rank)
-	if UnitDebuff(target, buff, rank, "PLAYER") then
+	theDebuff = select(3, GetSpellnfo(buff))
+	if UnitDebuff(target, theDebuff, rank) then
 		return true
 	end
 end

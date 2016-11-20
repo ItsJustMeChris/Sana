@@ -94,8 +94,10 @@ end
 function sanaInCombat()
   for i=1, #Group do
     if UnitAffectingCombat(Group[i].Unit) then
+    	
       return true
       else
+      	efflDown = false
         return false
     end 
   end	

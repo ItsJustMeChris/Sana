@@ -33,6 +33,7 @@ LoadFile("Core\\backendFunctions.lua")
 LoadFile("Managers\\groupManager.lua")
 LoadFile("Managers\\rotationManager.lua")
 LoadFile("Managers\\hotManager.lua")
+LoadFile("Managers\\bossManager.lua")
 
 --    Events
 LoadFile("Events\\Events.lua")
@@ -41,6 +42,7 @@ LoadFile("Events\\Events.lua")
 LoadFile("UnitAuras\\Buffs.lua")
 LoadFile("UnitAuras\\DeBuffs.lua")
 LoadFile("UnitAuras\\Dispellable.lua")
+LoadFile("UnitAuras\\smartDispell.lua")
 
 --    Rotations
 LoadFile("Rotations\\Druid\\restoRotation.lua")
@@ -49,3 +51,4 @@ LoadFile("Rotations\\backendRotation.lua")
 --    Spells
 LoadFile("Spells\\restoTalents.lua")
 LoadFile("Spells\\restoSpells.lua")
+LoadFile("Spells\\diSpells.lua")

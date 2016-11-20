@@ -4,7 +4,7 @@ function restoRotation()
 		sanaLowestHealth() 
 		sanaTankHealth() 
 		sanaHealerHealth()
-		
+
 										--+----------------------+--
 										--|Stronk Buffers Healing|--
 										--+----------------------+--
@@ -17,8 +17,22 @@ function restoRotation()
 			CastSpellByID(Wild_Growth, tankUnit)
 		end
 
-
 		sanaEfflorscence()
+
+		if sanaDispell() and shouldSanaCast(Natures_Cure, tankUnit) then
+			CastSpellByID(Natures_Cure, tankUnit)
+				sanaDebug("Natures cure on", tankUnit)
+		end
+
+		if sanaDispell() and shouldSanaCast(Natures_Cure, lowestUnit) then
+			CastSpellByID(Natures_Cure, lowestUnit)
+				sanaDebug("Natures cure on", lowestUnit)
+		end
+
+		if sanaDispell() and shouldSanaCast(Natures_Cure, healerUnit) then
+			CastSpellByID(Natures_Cure, healerUnit)
+				sanaDebug("Natures cure on", healerUnit)
+		end
 
 		if sanaTalentTrue(Renewal_Talent) and shouldSanaCast(Renewal, "player")
 			and healerHealth >= Config.Renewal_Min and healerHealth <= Config.Renewal_Max

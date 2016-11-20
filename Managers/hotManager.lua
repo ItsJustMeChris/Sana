@@ -23,16 +23,14 @@ end
 
 function sanaUnitInEffl()
 	for i=1, ObjectCount() do
-		for g=1, #Group do
 			for h=1, #hotTable do
 		local name = ObjectName(ObjectWithIndex(i))
 		local object = ObjectWithIndex(i)
 		local x,y,z = ObjectPosition(object)
 		if name == "Efflorescence" and ObjectExists(object) then
-			if sanaGetRange(object, Group[g].Name) <= 10 then
+			if sanaGetRange(object, UnitName(hotTable[h].Unit)) <= 10 then
 				hotTable[h].Effl = 1
 				else hotTable[h].Effl = 0
-			end
 			end
 		end
 		end
