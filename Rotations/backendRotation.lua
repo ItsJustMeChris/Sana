@@ -82,7 +82,7 @@ function sanaEfflorscence()
 		local x1, y1, z1 = ObjectPosition(Group[i].Unit)
 		local x2, y2, z2 = ObjectPosition(Group[i].Unit)
 		local x3, y3, z3 = ObjectPosition(Group[i].Unit)
-		if (efflDown == false or efflDown == nil) and sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 then
+		if (efflDown == false or efflDown == nil) and ObjectExists(Group[i].Unit) and sanaHowManyNear(Group[i].Unit, any, 20) >= 3 and sanaGetHealth(Group[i].Unit) <= 95 then
 			CastSpellByID(145205)
 			ClickPosition(sanaGetMid(Group[i].Unit, "player"))
 			efflDown = true

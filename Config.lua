@@ -38,9 +38,9 @@ Config = {
 	--Cast Incarnation Tree of Life on tank unit at no lower than X% health
 	Tank_Incarnation_Tree_Of_Life_Min = 10,
 
-	Tank_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
-	Tank_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
-	Tank_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Tank_Incarnation_Tree_Of_Life_Rejuv_Max = 90,
+	Tank_Incarnation_Tree_Of_Life_Rejuv_Min = 70,
+	Tank_Incarnation_Tree_Of_Life_Regrowth_Max = 70,
 	Tank_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on tank unit at X% health
 	Tank_Ironbark_Max = 30,
@@ -179,9 +179,9 @@ Config = {
 	Healer_Incarnation_Tree_Of_Life_Max = 50,
 	--Cast Incarnation Tree of Life on healer unit at no lower than X% health
 	Healer_Incarnation_Tree_Of_Life_Min = 40,
-	Healer_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
-	Healer_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
-	Healer_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Healer_Incarnation_Tree_Of_Life_Rejuv_Max = 90,
+	Healer_Incarnation_Tree_Of_Life_Rejuv_Min = 70,
+	Healer_Incarnation_Tree_Of_Life_Regrowth_Max = 70,
 	Healer_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on healer unit at X% health
 	Healer_Ironbark_Max = 50,
@@ -319,10 +319,10 @@ Config = {
 	--Cast Incarnation Tree of Life on lowest unit at X% health
 	Lowest_Incarnation_Tree_Of_Life_Max = 35,
 	--Cast Incarnation Tree of Life on lowest unit at no lower than X% health
-	Lowest_Incarnation_Tree_Of_Life_Min = 10,
-	Lowest_Incarnation_Tree_Of_Life_Rejuv_Max = 10,
-	Lowest_Incarnation_Tree_Of_Life_Rejuv_Min = 10,
-	Lowest_Incarnation_Tree_Of_Life_Regrowth_Max = 10,
+	Lowest_Incarnation_Tree_Of_Life_Min = 20,
+	Lowest_Incarnation_Tree_Of_Life_Rejuv_Max = 90,
+	Lowest_Incarnation_Tree_Of_Life_Rejuv_Min = 70,
+	Lowest_Incarnation_Tree_Of_Life_Regrowth_Max = 70,
 	Lowest_Incarnation_Tree_Of_Life_Regrowth_Min = 10,
 	--Cast Ironbark on lowest unit at X% health
 	Lowest_Ironbark_Max = 30,
@@ -434,4 +434,5 @@ Config = {
 	Flourish_Max = 80,
 	Renewal_Min = 40,
 	Renewal_Max = 60,
+	Test = 0,
 }

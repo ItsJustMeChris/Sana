@@ -7,11 +7,11 @@ local Root =  WowAddon .. AddonName .. "\\"
 
 function LoadFile(FilePath,LoadMsg)
   lua = ReadFile(Root .. FilePath)
-  
+
   if not lua then
     print(Root .. FilePath .. " Does not exist")
   end
-  
+
   local func,err = loadstring(lua,Root .. "\\" .. FilePath)
   if err then
     error(err,0)
@@ -52,3 +52,8 @@ LoadFile("Rotations\\backendRotation.lua")
 LoadFile("Spells\\restoTalents.lua")
 LoadFile("Spells\\restoSpells.lua")
 LoadFile("Spells\\diSpells.lua")
+
+--    UI
+LoadFile("UI\\sanaUIHealer.lua")
+LoadFile("UI\\sanaUITank.lua")
+LoadFile("UI\\sanaUILowest.lua")

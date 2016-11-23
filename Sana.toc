@@ -1,4 +1,5 @@
 ## Interface: 70100
 ## Title: Sana
 ## Notes: Heal
+## SavedVariables: Config
 loader.lua

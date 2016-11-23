@@ -11,7 +11,7 @@ function sanaUpdate(self, elapsed)
 		sanaRotationStart()
 		elseif sanaTick >= 1 then
 		sanaCheckRejuv()
-		sanaCheckLifebloom()	
+		sanaCheckLifebloom()
 		sanaTick = 0
 	end
 end
@@ -20,7 +20,7 @@ function sanaToggle()
 	if SanaToggle ~= true then
 		SanaToggle = true
 		sanaSay("Enabled")
-	else 
+	else
 		SanaToggle = false
 		sanaSay("Disabled")
 	end
@@ -38,6 +38,9 @@ end
 
 function sanaHelp()
   sanaSay("---Available Commands---")
+  sanaSay("Tank:  Opens tank config settings")
+  sanaSay("Lowest:  Opens lowest unit config settings")
+  sanaSay("Healer:  Opens healer config settings")
   sanaSay("Help:  Reveals this list")
   sanaSay("Toggle:  Enables and disables the rotation")
   sanaSay("Debug:  Enables and disables debug chat spam")
@@ -52,6 +55,12 @@ function handler(msg, editbox)
 		sanaDebugToggle()
 	elseif msg == string.lower("help") then
 		sanaHelp()
+	elseif msg == string.lower("tank") then
+		SanaUITank:Show()
+	elseif msg == string.lower("lowest") then
+		SanaUILowest:Show()
+	elseif msg == string.lower("healer") then
+		SanaUIHealer:Show()
 	else
 		sanaSay("Error")
 	end

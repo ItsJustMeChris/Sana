@@ -7,7 +7,7 @@ end
 function sanaDebug(action, thingy)
 	if debugMode == true then
 	print("|cffff69b4[Sana]|r", action, thingy)
-	else 
+	else
 	end
 end
 function sanaGetHealth(target)
@@ -94,13 +94,13 @@ end
 function sanaInCombat()
   for i=1, #Group do
     if UnitAffectingCombat(Group[i].Unit) then
-    	
+
       return true
       else
       	efflDown = false
         return false
-    end 
-  end	
+    end
+  end
 end
 
 function sanaUnitInRange(unit)
