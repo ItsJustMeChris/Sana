@@ -1,7 +1,9 @@
 function sanaDispell(target)
 	for i=1, #Dispell do
-		if sanaDispellable(target) and sanaTick >= .750 and sanaDeBuff(target, Dispell[i]) then
+		if sanaDispellable(Dispell[i], target) and sanaTick >= .750 then
 			return true
+		else
+			return false
 		end
 	end
 end

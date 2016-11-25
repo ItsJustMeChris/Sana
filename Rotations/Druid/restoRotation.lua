@@ -18,17 +18,17 @@ function restoRotation()
 
 		sanaEfflorscence()
 
-		if sanaDispell() and shouldSanaCast(Natures_Cure, tankUnit) then
+		if sanaDispell(tankUnit) and shouldSanaCast(Natures_Cure, tankUnit) then
 			CastSpellByID(Natures_Cure, tankUnit)
 				sanaDebug("Natures cure on", tankUnit)
 		end
 
-		if sanaDispell() and shouldSanaCast(Natures_Cure, lowestUnit) then
+		if sanaDispell(lowestUnit) and shouldSanaCast(Natures_Cure, lowestUnit) then
 			CastSpellByID(Natures_Cure, lowestUnit)
 				sanaDebug("Natures cure on", lowestUnit)
 		end
 
-		if sanaDispell() and shouldSanaCast(Natures_Cure, healerUnit) then
+		if sanaDispell(healerUnit) and shouldSanaCast(Natures_Cure, healerUnit) then
 			CastSpellByID(Natures_Cure, healerUnit)
 				sanaDebug("Natures cure on", healerUnit)
 		end

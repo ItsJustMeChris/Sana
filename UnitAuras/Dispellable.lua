@@ -1,9 +1,10 @@
-function sanaDispellable(target)
-	for i=1,40 do
-		if select(5, UnitDebuff(target, i)) == ("Magic" or "Curse" or "Poison") then
-			return true
-		elseif not UnitDebuff(target, i) then
-			return false
-		end
-	end
+function sanaDispellable(buffID, unit)
+	local debuff = select(3, GetSpellInfo(buffID))
+if sanaDeBuff(unit, buffID) then
+dispellType = select(4, sanaDeBuff(unit, debuff))
+if dispellType == "Curse" or "Magic" or "Poison" then
+  return true;
+end
+else return false;
+end
 end
