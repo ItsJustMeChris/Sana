@@ -108,7 +108,7 @@ function restoRotation()
 		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, tankUnit) and sanaMyBuff(tankUnit, "Rejuvenation", "") and not sanaMyBuff(tankUnit, "Rejuvenation (Germination)", "")
 
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots
-				and tankHealth >= Config.Tank_Rejuvenation_Min and tankHealth <= Config.Tank_Rejuvenation_Max
+				and tankHealth >= Config.Tank_Germination_Min and tankHealth <= Config.Tank_Germination_Max
 					then
 						CastSpellByID(Rejuvenation, tankUnit)
 							sanaDebug("Gemination on", UnitName(tankUnit))
@@ -124,7 +124,7 @@ function restoRotation()
 
 --		Lifebloom on tank
 		if shouldSanaCast(Lifebloom, tankUnit) and not sanaMyBuff(tankUnit, "Lifebloom", "")
-			and sanaCheckLifebloom() <= Config.Lifebloom_Active_Hots
+			and sanaCheckLifebloom() < Config.Lifebloom_Active_Hots
 				and tankHealth >= Config.Tank_Lifebloom_Min and tankHealth <= Config.Tank_Lifebloom_Max
 					then
 						CastSpellByID(Lifebloom, tankUnit)
@@ -210,7 +210,7 @@ function restoRotation()
 
 		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, lowestUnit) and sanaMyBuff(lowestUnit, "Rejuvenation", "") and not sanaMyBuff(lowestUnit, "Rejuvenation (Germination)", "")
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots
-				and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max
+				and lowestHealth >= Config.Lowest_Germination_Min and lowestHealth <= Config.Lowest_Germination_Max
 					then
 						CastSpellByID(Rejuvenation, lowestUnit)
 							sanaDebug("Germination on", UnitName(lowestUnit))
@@ -226,7 +226,7 @@ function restoRotation()
 
 --		Lifebloom on lowest
 		if shouldSanaCast(Lifebloom, lowestUnit) and not sanaMyBuff(lowestUnit, "Lifebloom", "")
-			and sanaCheckLifebloom() <= Config.Lifebloom_Active_Hots
+			and sanaCheckLifebloom() < Config.Lifebloom_Active_Hots
 				and lowestHealth >= Config.Lowest_Rejuvenation_Min and lowestHealth <= Config.Lowest_Rejuvenation_Max
 					then
 						CastSpellByID(Lifebloom, lowestUnit)
@@ -314,7 +314,7 @@ function restoRotation()
 
 		if sanaTalentTrue(Germination_Talent) and shouldSanaCast(Rejuvenation, healerUnit) and sanaMyBuff(healerUnit, "Rejuvenation", "") and not sanaMyBuff(healerUnit, "Rejuvenation (Germination)", "")
 			and sanaCheckRejuv() <= Config.Rejuvenation_Active_Hots
-				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max
+				and healerHealth >= Config.Healer_Germination_Min and healerHealth <= Config.Healer_Germination_Max
 					then
 						CastSpellByID(Rejuvenation, healerUnit)
 							sanaDebug("Germination on", UnitName(healerUnit))
@@ -330,7 +330,7 @@ function restoRotation()
 
 --		Lifebloom on healer
 		if shouldSanaCast(Lifebloom, healerUnit) and not sanaMyBuff(healerUnit, "Lifebloom", "")
-			and sanaCheckLifebloom() <= Config.Lifebloom_Active_Hots
+			and sanaCheckLifebloom() < Config.Lifebloom_Active_Hots
 				and healerHealth >= Config.Healer_Rejuvenation_Min and healerHealth <= Config.Healer_Rejuvenation_Max
 					then
 						CastSpellByID(Lifebloom, healerUnit)

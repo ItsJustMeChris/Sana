@@ -5,12 +5,15 @@ Config = {
 	Tank_Rejuvenation_Max = 95,
 	--Cast Rejuvenation on tank unit no lower than X% health
 	Tank_Rejuvenation_Min = 70,
+	Tank_Germination_Max = 80,
+	--Cast Rejuvenation on tank unit no lower than X% health
+	Tank_Germination_Min = 60,
 	--Cast Lifebloom on tank unit at X% health
 	Tank_Lifebloom_Max = 80,
 	--Cast Lifebloom on tank unit at no lower than X% health
 	Tank_Lifebloom_Min = 60,
 	--Cast Regrowth on tank unit at X% health
-	Tank_Regrowth_Max = 60,
+	Tank_Regrowth_Max = 50,
 	--Cast Regrowth on tank unit at no lower than X% health
 	Tank_Regrowth_Min = 40,
 	--Cast Regrowth on tank unit at X% health if tank does not have Regrowth as a buff
@@ -20,7 +23,7 @@ Config = {
 	--Cast Healing Touch on tank unit at X% health
 	Tank_Healing_Touch_Max = 70,
 	--Cast Healing Touch on tank unit at no lower than X% health
-	Tank_Healing_Touch_Min = 60,
+	Tank_Healing_Touch_Min = 40,
 	--Cast Swift Mend on tank unit at X% health
 	Tank_Swift_Mend_Max = 50,
 	--Cast Swift Mend on tank unit at no lower than X% health
@@ -148,21 +151,24 @@ Config = {
 	--Cast Rejuvenation on healer unit no lower than X% health
 	Healer_Rejuvenation_Min = 70,
 	--Cast Lifebloom on healer unit at X% health
+	Healer_Germination_Max = 85,
+	--Cast Rejuvenation on tank unit no lower than X% health
+	Healer_Germination_Min = 60,
 	Healer_Lifebloom_Max = 70,
 	--Cast Lifebloom on healer unit at no lower than X% health
 	Healer_Lifebloom_Min = 60,
 	--Cast Regrowth on healer unit at X% health
-	Healer_Regrowth_Max = 75,
+	Healer_Regrowth_Max = 65,
 	--Cast Regrowth on healer unit at no lower than X% health
-	Healer_Regrowth_Min = 60,
+	Healer_Regrowth_Min = 40,
 	--Cast Regrowth on healer unit at X% health if tank does not have Regrowth as a buff
 	Healer_Regrowth_Buff_Max = 90,
 	--Cast Regrwoth on healer unit at no lower than X% health if tank does not have Regrowth as a buff
 	Healer_Regrowth_Buff_Min = 60,
 	--Cast Healing Touch on healer unit at X% health
-	Healer_Healing_Touch_Max = 88,
+	Healer_Healing_Touch_Max = 85,
 	--Cast Healing Touch on healer unit at no lower than X% health
-	Healer_Healing_Touch_Min = 75,
+	Healer_Healing_Touch_Min = 50,
 	--Cast Swift Mend on healer unit at X% health
 	Healer_Swift_Mend_Max = 40,
 	--Cast Swift Mend on healer unit at no lower than X% health
@@ -288,14 +294,17 @@ Config = {
 	Lowest_Rejuvenation_Max = 95,
 	--Cast Rejuvenation on lowest unit no lower than X% health
 	Lowest_Rejuvenation_Min = 70,
+	Lowest_Germination_Max = 70,
+	--Cast Rejuvenation on tank unit no lower than X% health
+	Lowest_Germination_Min = 60,
 	--Cast Lifebloom on lowest unit at X% health
 	Lowest_Lifebloom_Max = 50,
 	--Cast Lifebloom on lowest unit at no lower than X% health
 	Lowest_Lifebloom_Min = 40,
 	--Cast Regrowth on lowest unit at X% health
-	Lowest_Regrowth_Max = 75,
+	Lowest_Regrowth_Max = 70,
 	--Cast Regrowth on lowest unit at no lower than X% health
-	Lowest_Regrowth_Min = 50,
+	Lowest_Regrowth_Min = 40,
 	--Cast Regrowth on lowest unit at X% health if tank does not have Regrowth as a buff
 	Lowest_Regrowth_Buff_Max = 88,
 	--Cast Regrwoth on lowest unit at no lower than X% health if tank does not have Regrowth as a buff
@@ -303,7 +312,7 @@ Config = {
 	--Cast Healing Touch on lowest unit at X% health
 	Lowest_Healing_Touch_Max = 85,
 	--Cast Healing Touch on lowest unit at no lower than X% health
-	Lowest_Healing_Touch_Min = 75,
+	Lowest_Healing_Touch_Min = 50,
 	--Cast Swift Mend on lowest unit at X% health
 	Lowest_Swift_Mend_Max = 50,
 	--Cast Swift Mend on lowest unit at no lower than X% health
