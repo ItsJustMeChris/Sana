@@ -21,3 +21,9 @@ AddEventCallback("UNIT_AURA", function(unitID)
 		return true
 	end
 end)
+
+AddEventCallback("ZONE_CHANGED_NEW_AREA", function()
+print("We are in", GetRealZoneText())
+location = GetRealZoneText()
+
+end)

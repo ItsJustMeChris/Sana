@@ -24,7 +24,7 @@ local nearsana = 0
   for i=1, #Group do
     if other == any then
       if sanaGetRange(target, Group[i].Unit) < distance then
-        nearsana = nearsana + 1 
+        nearsana = nearsana + 1
       end
     elseif sanaGetRange(target, other) < distance then
       nearsana = nearsana + 1
@@ -37,7 +37,7 @@ function shouldSanaCast(spell, unit)
     currentlyChanneling = select(1, UnitChannelInfo("player"))
 	if unit == nil then return false end
 	if sanaUnitInRange(unit) and sanaGetCooldown(spell) then
-		if (select(4, GetSpellInfo(spell)) == 0) and UnitMovementFlags("player") <= 1 then 
+		if (select(4, GetSpellInfo(spell)) == 0) and UnitMovementFlags("player") <= 1 then
 			return true
 		elseif (select(4, GetSpellInfo(spell)) ~= 0 and UnitMovementFlags("player") == 0 ) then
 			return true
@@ -88,4 +88,13 @@ function sanaEfflorscence()
 			efflDown = true
 		end
 	end
+end
+
+function sanaNaturesCure()
+    for i=1, #Group do
+        if sanaDispell(Group[i].Unit) and shouldSanaCast(Natures_Cure, Group[i].Unit) then
+            CastSpellByID(Natures_Cure, Group[i].Unit)
+                sanaDebug("Casting Natures Cure on", UnitName(Group[i].Unit))
+        end
+    end
 end

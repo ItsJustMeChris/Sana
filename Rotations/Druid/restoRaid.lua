@@ -1,4 +1,4 @@
-function restoRotation()
+function restoRaid()
 	if sanaInCombat() then
 		sanaLowestHealth()
 		sanaTankHealth()
@@ -18,7 +18,20 @@ function restoRotation()
 
 		sanaEfflorscence()
 
-		sanaNaturesCure()
+		if sanaDispell(tankUnit) and shouldSanaCast(Natures_Cure, tankUnit) then
+			CastSpellByID(Natures_Cure, tankUnit)
+				sanaDebug("Natures cure on", tankUnit)
+		end
+
+		if sanaDispell(lowestUnit) and shouldSanaCast(Natures_Cure, lowestUnit) then
+			CastSpellByID(Natures_Cure, lowestUnit)
+				sanaDebug("Natures cure on", lowestUnit)
+		end
+
+		if sanaDispell(healerUnit) and shouldSanaCast(Natures_Cure, healerUnit) then
+			CastSpellByID(Natures_Cure, healerUnit)
+				sanaDebug("Natures cure on", healerUnit)
+		end
 
 		if sanaTalentTrue(Renewal_Talent) and shouldSanaCast(Renewal, "player")
 			and healerHealth >= Config.Renewal_Min and healerHealth <= Config.Renewal_Max
@@ -54,7 +67,7 @@ function restoRotation()
 		if UnitAura("player", "Incarnation: Tree of Life") and sanaTalentTrue(Incarnation_Tree_of_Life_Talent) and shouldSanaCast(Regrowth, lowestUnit)
 			and lowestHealth >= Config.Lowest_Incarnation_Tree_Of_Life_Regrowth_Min and lowestHealth <= Config.Lowest_Incarnation_Tree_Of_Life_Regrowth_Max
 				then
-					CastSpellByID(Regrowth, lowestUnit)
+					CastSpellByID(Regrowth, tankUnit)
 						sanaDebug("Regrowth under TOL on", UnitName(lowestUnit))
 		end
 

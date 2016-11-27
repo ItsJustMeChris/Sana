@@ -7,6 +7,10 @@ function sanaRotationStart()
 	elseif playerSpec == 104 then
 		guardianRotation()
 	elseif playerSpec == 105 then
-		restoRotation()
+			if locationCheck("Emerald Nightmare") then
+				restoRaid()
+			else
+			restoRotation()
+		end
 	end
 end

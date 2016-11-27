@@ -34,6 +34,7 @@ LoadFile("Managers\\groupManager.lua")
 LoadFile("Managers\\rotationManager.lua")
 LoadFile("Managers\\hotManager.lua")
 LoadFile("Managers\\bossManager.lua")
+LoadFile("Managers\\locationManager.lua")
 
 --    Events
 LoadFile("Events\\Events.lua")
@@ -46,6 +47,7 @@ LoadFile("UnitAuras\\smartDispell.lua")
 
 --    Rotations
 LoadFile("Rotations\\Druid\\restoRotation.lua")
+LoadFile("Rotations\\Druid\\restoRaid.lua")
 LoadFile("Rotations\\backendRotation.lua")
 
 --    Spells
