@@ -24,6 +24,7 @@ end
 
 --    Config
 LoadFile("Config.lua")
+LoadFile("raidConfig.lua")
 
 --    Core
 LoadFile("Core\\Core.lua")

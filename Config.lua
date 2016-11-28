@@ -182,9 +182,9 @@ Config = {
 	--Cast Cenarion Ward on healer unit at no lower than X% health
 	Healer_Cenarion_Ward_Min = 30,
 	--Cast Incarnation Tree of Life on healer unit at X% health
-	Healer_Incarnation_Tree_Of_Life_Max = 50,
+	Healer_Incarnation_Tree_Of_Life_Max = 30,
 	--Cast Incarnation Tree of Life on healer unit at no lower than X% health
-	Healer_Incarnation_Tree_Of_Life_Min = 40,
+	Healer_Incarnation_Tree_Of_Life_Min = 10,
 	Healer_Incarnation_Tree_Of_Life_Rejuv_Max = 90,
 	Healer_Incarnation_Tree_Of_Life_Rejuv_Min = 70,
 	Healer_Incarnation_Tree_Of_Life_Regrowth_Max = 70,
@@ -326,7 +326,7 @@ Config = {
 	--Cast Cenarion Ward on lowest unit at no lower than X% health
 	Lowest_Cenarion_Ward_Min = 10,
 	--Cast Incarnation Tree of Life on lowest unit at X% health
-	Lowest_Incarnation_Tree_Of_Life_Max = 35,
+	Lowest_Incarnation_Tree_Of_Life_Max = 30,
 	--Cast Incarnation Tree of Life on lowest unit at no lower than X% health
 	Lowest_Incarnation_Tree_Of_Life_Min = 20,
 	Lowest_Incarnation_Tree_Of_Life_Rejuv_Max = 90,
